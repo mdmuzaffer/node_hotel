@@ -31,6 +31,8 @@ const app = express();
 const db = require('./db');
 //const Person = require('./models/Person');
 const MenuItem = require('./models/MenuItem');
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
 
 // Middleware to parse JSON request bodies
@@ -162,7 +164,6 @@ app.use('/person', personRouter);
 const menuRouter = require('./routes/MenuRoutes');
 app.use('/menus', menuRouter);
 
-
-app.listen(3000, ()=>{
-    console.log('server listing on port 3000');
+app.listen(PORT, ()=>{
+    console.log('server listing on port ' + PORT);
 })
